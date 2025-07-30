@@ -4,11 +4,11 @@
  */
 package com.sisllc.instaiml.model;
 
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
@@ -19,12 +19,12 @@ public class InsuranceProvider {
     @Id 
     private String id;
     
-    @Column(name = "provider_name")
+    @Column("provider_name")
     private String providerName;
     
     private String specialty;
 
-    @Column(name = "network_status")
+    @Column("network_status")
     private String networkStatus; 
     
 }

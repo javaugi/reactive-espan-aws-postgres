@@ -4,13 +4,13 @@
  */
 package com.sisllc.instaiml.model;
 
-import jakarta.persistence.Column;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
@@ -21,34 +21,34 @@ public class PlanPricing {
     @Id 
     private String id;
     
-    @Column(name = "insurance_plan_id")
+    @Column("insurance_plan_id")
     private String insurancePlanId;
         
-    @Column(name = "pricing_type")
+    @Column("pricing_type")
     private String pricingType; //(e.g. premium, deductible),
     
-    @Column(name = "base_premium", precision = 10, scale = 2)
+    @Column("base_premium")
     private BigDecimal basePremium;
     
-    @Column(name = "tobacco_surcharge", precision = 10, scale = 2)
+    @Column("tobacco_surcharge")
     private BigDecimal tobaccoSurcharge;
     
-    @Column(name = "family_coverage_adjustment", precision = 10, scale = 2)
+    @Column("family_coverage_adjustment")
     private BigDecimal familyCoverageAdjustment;
     
-    @Column(name = "misc_adjustment", precision = 10, scale = 2)
+    @Column("misc_adjustment")
     private BigDecimal miscAdjustment;
     
-    @Column(name = "age_bracket")
+    @Column("age_bracket")
     private String ageBracket;
 
-    @Column(name = "coverage_level")
+    @Column("coverage_level")
     private String coverageLevel;
     
-    @Column(name = "effective_date")
+    @Column("effective_date")
     private OffsetDateTime effectiveDate;
 
-    @Column(name = "expiration_date")
+    @Column("expiration_date")
     private OffsetDateTime expirationDate;
 
 }

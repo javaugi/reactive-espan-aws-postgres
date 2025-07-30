@@ -4,7 +4,6 @@
  */
 package com.sisllc.instaiml.model;
 
-import jakarta.persistence.Column;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import lombok.AllArgsConstructor;
@@ -13,6 +12,7 @@ import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
@@ -23,44 +23,44 @@ public class ClaimsData {
     @Id 
     private String id;
     
-    @Column(name = "insurance_plan_id")
+    @Column("insurance_plan_id")
     private String insurancePlanId;
     
-    @Column(name = "member_id")
+    @Column("member_id")
     private String memberId;    
     
-    @Column(name = "provider_id")
+    @Column("provider_id")
     private String providerId;    
     
-    @Column(name = "billed_amount", precision = 10, scale = 2)
+    @Column("billed_amount")
     private BigDecimal billedAmount;
     
-    @Column(name = "allowed_amount", precision = 10, scale = 2)
+    @Column("allowed_amount")
     private BigDecimal allowedAmount;
     
-    @Column(name = "paid_amount", precision = 10, scale = 2)
+    @Column("paid_amount")
     private BigDecimal paidAmount;
     
-    @Column(name = "diagnosis_codes")
+    @Column("diagnosis_codes")
     private String diagnosisCodes;
     
-    @Column(name = "procedure_codes")
+    @Column("procedure_codes")
     private String procedureCodes;
     
-    @Column(name = "claim_status")
+    @Column("claim_status")
     private String claimStatus;
     
-    @Column(name = "service_date")
+    @Column("service_date")
     private OffsetDateTime serviceDate;
     
-    @Column(name = "claim_date")
+    @Column("claim_date")
     private OffsetDateTime claimDate;
     
     @CreatedDate
-    @Column(name = "created_date")
+    @Column("created_date")
     private OffsetDateTime createdDate;   
 
     @LastModifiedDate
-    @Column(name = "updated_date")
+    @Column("updated_date")
     private OffsetDateTime updatedDate;
 }

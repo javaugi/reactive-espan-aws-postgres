@@ -4,7 +4,6 @@
  */
 package com.sisllc.instaiml.model;
 
-import jakarta.persistence.Column;
 import java.time.OffsetDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,6 +11,7 @@ import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
@@ -30,9 +30,9 @@ public class Physician {
     private String address;
     
     @CreatedDate
-    @Column(name = "created_date")
+    @Column("created_date")
     private OffsetDateTime createdDate;   
 
     @LastModifiedDate
-    @Column(name = "updated_date")
+    @Column("updated_date")
     private OffsetDateTime updatedDate;}

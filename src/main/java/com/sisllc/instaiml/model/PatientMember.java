@@ -4,11 +4,11 @@
  */
 package com.sisllc.instaiml.model;
 
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
@@ -19,10 +19,10 @@ public class PatientMember {
     @Id
     private String id;
     
-    @Column(name = "patient_id")
+    @Column("patient_id")
     private String patientId;
 
-    @Column(name = "member_id")
+    @Column("member_id")
     private String memberId;
  
 }

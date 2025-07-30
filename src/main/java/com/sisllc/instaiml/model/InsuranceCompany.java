@@ -4,12 +4,12 @@
  */
 package com.sisllc.instaiml.model;
 
-import jakarta.persistence.Column;
 import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
@@ -20,22 +20,22 @@ public class InsuranceCompany {
     @Id 
     private String id;
     
-    @Column(name = "company_code")
+    @Column("company_code")
     private String companyCode;
     
-    @Column(name = "company_name")
+    @Column("company_name")
     private String companyName;
 
-    @Column(name = "state_licenses")
+    @Column("state_licenses")
     private String stateLicenses;
 
-    @Column(name = "financial_rating")
+    @Column("financial_rating")
     private String financialRating;
 
-    @Column(name = "contact_info")
+    @Column("contact_info")
     private String contactInfo;
     
-    @Column(name = "market_share", precision = 10, scale = 2)
+    @Column("market_share")
     private BigDecimal marketShare;
 
 }

@@ -4,7 +4,6 @@
  */
 package com.sisllc.instaiml.model;
 
-import jakarta.persistence.Column;
 import java.time.OffsetDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,6 +11,7 @@ import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
@@ -22,34 +22,34 @@ public class Prescription {
     @Id
     private String id;
 
-    @Column(name = "patient_id")
+    @Column("patient_id")
     private String patientId;
 
-    @Column(name = "physician_id")
+    @Column("physician_id")
     private String physicianId;
 
-    @Column(name = "medication_id")
+    @Column("medication_id")
     private String medicationId;
 
-    @Column(name = "pharmacy_id")
+    @Column("pharmacy_id")
     private String pharmacyId;
 
     private Integer quantity;
     private Integer refills;
     private String status; // (string, e.g., "active", "filled", "cancelled")    
 
-    @Column(name = "fill_date")
+    @Column("fill_date")
     private OffsetDateTime fillDate;
 
-    @Column(name = "prescription_date")
+    @Column("prescription_date")
     private OffsetDateTime prescriptionDate;
     
     @CreatedDate
-    @Column(name = "created_date")
+    @Column("created_date")
     private OffsetDateTime createdDate;   
 
     @LastModifiedDate
-    @Column(name = "updated_date")
+    @Column("updated_date")
     private OffsetDateTime updatedDate;
 
 }

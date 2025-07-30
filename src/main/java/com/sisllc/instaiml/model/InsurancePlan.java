@@ -4,7 +4,6 @@
  */
 package com.sisllc.instaiml.model;
 
-import jakarta.persistence.Column;
 import java.time.OffsetDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,6 +11,7 @@ import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
@@ -22,34 +22,34 @@ public class InsurancePlan {
     @Id 
     private String id;
         
-    @Column(name = "insurance_company_id")
+    @Column("insurance_company_id")
     private String insuranceCompanyId;
         
-    @Column(name = "plan_name")
+    @Column("plan_name")
     private String planName;
 
-    @Column(name = "plan_type")
+    @Column("plan_type")
     private String planType;
 
-    @Column(name = "network_type")
+    @Column("network_type")
     private String networkType;
 
-    @Column(name = "tier_level")
+    @Column("tier_level")
     private String tierLevel;
 
     private boolean active;
 
-    @Column(name = "effective_date")
+    @Column("effective_date")
     private OffsetDateTime effectiveDate;
 
-    @Column(name = "expiration_date")
+    @Column("expiration_date")
     private OffsetDateTime expirationDate;
 
     @CreatedDate
-    @Column(name = "created_date")
+    @Column("created_date")
     private OffsetDateTime createdDate;   
 
     @LastModifiedDate
-    @Column(name = "updated_date")
+    @Column("updated_date")
     private OffsetDateTime updatedDate;
 }

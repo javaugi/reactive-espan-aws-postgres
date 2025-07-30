@@ -4,12 +4,12 @@
  */
 package com.sisllc.instaiml.model;
 
-import jakarta.persistence.Column;
 import java.time.OffsetDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 
@@ -21,23 +21,23 @@ public class Member {
     @Id 
     private String id;
     
-    @Column(name = "insurance_plan_id")
+    @Column("insurance_plan_id")
     private String insurancePlanId;
     
     private String name;
     private String gender;
     private String address;
     
-    @Column(name = "tobacco_user")
+    @Column("tobacco_user")
     private boolean tobaccoUser;
     
-    @Column(name = "birth_date")
+    @Column("birth_date")
     private OffsetDateTime birthDate;
 
-    @Column(name = "enrollment_date")
+    @Column("enrollment_date")
     private OffsetDateTime enrollmentDate;
 
-    @Column(name = "termination_date")
+    @Column("termination_date")
     private OffsetDateTime terminationDate;
 
 }

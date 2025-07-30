@@ -4,15 +4,13 @@
  */
 package com.sisllc.instaiml.model;
 
-import jakarta.persistence.Column;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
@@ -23,42 +21,42 @@ public class CoverageDetail {
     @Id 
     private String id;
     
-    @Column(name = "insurance_plan_id")
+    @Column("insurance_plan_id")
     private String insurancePlanId;
     
-    @Column(name = "deductible_individual", precision = 10, scale = 2)
+    @Column("deductible_individual")
     private BigDecimal deductibleIndividual;
 
-    @Column(name = "deductible_family", precision = 10, scale = 2)
+    @Column("deductible_family")
     private BigDecimal deductibleFamily;
 
-    @Column(name = "oop_max_individual", precision = 10, scale = 2)
+    @Column("oop_max_individual")
     private BigDecimal oopMaxIndividual;
 
-    @Column(name = "oop_max_family", precision = 10, scale = 2)
+    @Column("oop_max_family")
     private BigDecimal oopMaxFamily;
 
-    @Column(name = "primary_care_copay", precision = 10, scale = 2)
+    @Column("primary_care_copay")
     private BigDecimal primaryCareCopay;
 
-    @Column(name = "specialist_copay", precision = 10, scale = 2)
+    @Column("specialist_copay")
     private BigDecimal specialistCopay;
 
-    @Column(name = "er_copay", precision = 10, scale = 2)
+    @Column("er_copay")
     private BigDecimal erCopay;
 
-    @Column(name = "prescription_tier1", precision = 10, scale = 2)
+    @Column("prescription_tier1")
     private BigDecimal prescriptionTier1;
 
-    @Column(name = "prescription_tier2", precision = 10, scale = 2)
+    @Column("prescription_tier2")
     private BigDecimal prescriptionTier2;
 
-    @Column(name = "prescription_tier3", precision = 10, scale = 2)
+    @Column("prescription_tier3")
     private BigDecimal prescriptionTier3;
     
-    @Column(name = "effective_date")
+    @Column("effective_date")
     private OffsetDateTime effectiveDate;
 
-    @Column(name = "expiration_date")
+    @Column("expiration_date")
     private OffsetDateTime expirationDate;
 }
