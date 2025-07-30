@@ -29,12 +29,19 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username)
             .switchIfEmpty(Mono.error(new UserNotFoundException("User not found")))
-            //.filter(user -> passwordEncoder.matches(password, user.getPassword()))
+            //.filter(muser -> passwordEncoder.matches(password, muser.getPassword()))
             .onErrorResume(e -> {
                 // Handle the error and return a default value or another Mono
                 return Mono.error(new UserNotFoundException("User not found"));
             })
-            .block();
+            .map(u -> {
+                // findByUsername successful, return the muser
+                return u;
+            }).block();
+        
+        if (user == null) {
+            throw new UserNotFoundException("User not found");
+        }
 
         return org.springframework.security.core.userdetails.User
             .withUsername(user.getUsername())
@@ -48,5 +55,5 @@ public class CustomUserDetailsService implements UserDetailsService {
             .disabled(false)
             .build();
     }
-
+    
 }
