@@ -3,11 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.sisllc.instaiml.pgh2</groupId>
-    <artifactId>reactive-compass-h2-postgres</artifactId>
+    <groupId>com.sisllc.instaiml.awspg</groupId>
+    <artifactId>reactive-espan-aws-postgres</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>reactive-compass-h2-postgres</name>
+    <name>reactive-espan-aws-postgres</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -62,19 +62,7 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.asyncer</groupId>
-            <artifactId>r2dbc-mysql</artifactId>
-        </dependency>                
-        <dependency>
-            <groupId>io.r2dbc</groupId>
-            <artifactId>r2dbc-h2</artifactId>
         </dependency> 
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-        </dependency>        
         <!--
         <dependency>
             <groupId>io.r2dbc</groupId>

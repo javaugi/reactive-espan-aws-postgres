@@ -5,8 +5,6 @@
 package com.sisllc.instaiml.config;
 
 import com.sisllc.instaiml.config.DatabaseProperties.ProfileSetting;
-import io.r2dbc.h2.H2ConnectionConfiguration;
-import io.r2dbc.h2.H2ConnectionFactory;
 import io.r2dbc.pool.ConnectionPool;
 import io.r2dbc.pool.ConnectionPoolConfiguration;
 import io.r2dbc.postgresql.PostgresqlConnectionConfiguration;
@@ -48,8 +46,6 @@ public class DatabaseConfig {
         if (env.getActiveProfiles() == null || env.getActiveProfiles().length == 0 ||
             env.acceptsProfiles(ProfileMockConfig.MOCK_PROFILES)) {
            profileSetting = ProfileSetting.MOCK;
-        } else if (env.acceptsProfiles(Profiles.of(ProfileH2Config.H2_PROFILE))) {
-           profileSetting = ProfileSetting.H2;
         } else if (env.acceptsProfiles(Profiles.of(ProfileProdConfig.PROD_PROFILE))) {
            profileSetting = ProfileSetting.PROD;
         } else {
@@ -77,16 +73,6 @@ public class DatabaseConfig {
                 .initialSize(initialPoolSize)
                 .maxSize(maxPoolSize)
                 .build()
-            );
-        }
-        
-        if (profileSetting == ProfileSetting.H2) {
-            return new H2ConnectionFactory(
-                H2ConnectionConfiguration.builder()
-                    .url(dbProps.getH2Url())
-                    .username(dbProps.getH2Username())
-                    .password(dbProps.getH2Password())
-                    .build()
             );
         }
         

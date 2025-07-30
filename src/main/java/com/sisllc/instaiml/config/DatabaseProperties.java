@@ -13,14 +13,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class DatabaseProperties {
    
-    private String h2Url;
-    private String h2Username;
-    private String h2Password;
-    private String h2DdlSchemaDir;
-    private String h2Host;
-    private String h2Port;
-    private String h2Database;
-    
     private String mockUrl;
     private String mockUsername;
     private String mockPassword;
@@ -45,8 +37,6 @@ public class DatabaseProperties {
     private String prodPort;
     private String prodDatabase;
     
-    private String h2TcpServerPort;
-    private String h2WebServerPort;    
     private ProfileSetting profileSetting;
     private String ddlSchemaDir;
     private Boolean setupMockUserOnly;
@@ -54,7 +44,7 @@ public class DatabaseProperties {
     private String databaseUsed;
     
     public static enum ProfileSetting {
-        H2, MOCK, PG, PROD
+        MOCK, PG, PROD
     }
     
     public void setupBaseDbProps(ProfileSetting ps) {
@@ -64,10 +54,6 @@ public class DatabaseProperties {
             case ProfileSetting.PROD -> {
                 ddlSchemaDir = prodDdlSchemaDir;
                 databaseUsed = this.prodDatabase;
-            }
-            case ProfileSetting.H2 -> {
-                ddlSchemaDir = h2DdlSchemaDir;
-                databaseUsed = this.h2Database;
             }
             case ProfileSetting.MOCK -> {
                 ddlSchemaDir = mockDdlSchemaDir;

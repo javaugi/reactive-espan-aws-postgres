@@ -99,24 +99,8 @@ public class DataInitializer implements ApplicationRunner{
     }
     
     private Boolean checkTableExists(String tableName) {
-        if (dbProps.getProfileSetting() == ProfileSetting.H2) {
-            return checkH2TableExists(tableName);
-        }
-        
         return checkPgTableExists(tableName);
     }
-    
-    private Boolean checkH2TableExists(String tableName) {
-        return dbClient.sql("""
-            SELECT COUNT(*) > 0 
-                FROM INFORMATION_SCHEMA.TABLES 
-                WHERE UPPER(TABLE_NAME) = UPPER(:tableName)
-                AND TABLE_SCHEMA = 'PUBLIC'
-            """)
-            .bind("tableName", tableName)
-            .map(row -> row.get(0, Boolean.class))
-            .one().defaultIfEmpty(false).block();
-    }    
     
     private Boolean checkPgTableExists(String tableName) {
         return dbClient.sql("""

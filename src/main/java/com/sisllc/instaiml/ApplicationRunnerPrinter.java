@@ -23,8 +23,6 @@ public class ApplicationRunnerPrinter implements ApplicationRunner {
     private Environment env;
     @Autowired
     protected DatabaseProperties dbProps;
-    @Autowired 
-    private H2TcpWebServers h2TcpServer;
 
     @Override
     public void run(ApplicationArguments args) {
@@ -49,6 +47,6 @@ public class ApplicationRunnerPrinter implements ApplicationRunner {
                 }
             });
 
-        log.debug("Application is ready: h2TcpServer {} \n {} \n {}", h2TcpServer, dbProps);
+        log.debug("Application is ready: \n {}", dbProps);
     }
 }
