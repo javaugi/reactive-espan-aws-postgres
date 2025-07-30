@@ -3,9 +3,9 @@
 name: Deploy to AWS EKS
 
 on:
+  workflow_dispatch: # Manual trigger only and Commented out the following push trigger to auto deployment when new code is pushed
   # push:
   #   branches: [ "main" ]
-  workflow_dispatch:
 
 env:
   AWS_REGION: us-east-1
@@ -14,7 +14,8 @@ env:
   KUBE_CONFIG_FILE: kubeconfig.yaml
 
 jobs:
-  build-and-deploy:
+  build-and-deploy: #skip deployment unless a specific condition is met - deploy in the message
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[deploy]')
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
