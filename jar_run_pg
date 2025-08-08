@@ -3,4 +3,4 @@ reset
 echo "mvn clean package"
 mvn --version
 mvn clean package
-java -jar target/compass.jar --spring.profiles.active=postgres
+java -jar target/espan360.jar --spring.profiles.active=postgres
