@@ -5,7 +5,6 @@
 package com.sisllc.instaiml.data;
 
 import com.sisllc.instaiml.config.DatabaseProperties;
-import com.sisllc.instaiml.config.DatabaseProperties.ProfileSetting;
 import com.sisllc.instaiml.service.InsurancePricingAnalyticalService;
 import io.r2dbc.spi.ConnectionFactory;
 import java.io.IOException;
